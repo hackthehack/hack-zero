@@ -1,9 +1,15 @@
 {
 	"auth": {
-		"hackzero361cf1df": {
+		"hackzero42c2e1a8": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": []
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }

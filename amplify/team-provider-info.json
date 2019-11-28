@@ -13,7 +13,25 @@
         },
         "categories": {
             "auth": {
-                "hackzero361cf1df": {}
+                "hackzero42c2e1a8": {}
+            }
+        }
+    },
+    "testtwo": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-hack-zero-testtwo-154420-authRole",
+            "UnauthRoleArn": "arn:aws:iam::495526829652:role/amplify-hack-zero-testtwo-154420-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::495526829652:role/amplify-hack-zero-testtwo-154420-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-hack-zero-testtwo-154420-deployment",
+            "UnauthRoleName": "amplify-hack-zero-testtwo-154420-unauthRole",
+            "StackName": "amplify-hack-zero-testtwo-154420",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:495526829652:stack/amplify-hack-zero-testtwo-154420/bf6e8060-1199-11ea-b0a1-02667729fd96",
+            "AmplifyAppId": "d1xnltvvry0c5d"
+        },
+        "categories": {
+            "auth": {
+                "hackzero42c2e1a8": {}
             }
         }
     }

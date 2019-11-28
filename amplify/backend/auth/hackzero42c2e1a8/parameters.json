@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "hackzero361cf1df_identitypool_361cf1df",
+    "identityPoolName": "hackzero42c2e1a8_identitypool_42c2e1a8",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "hackze361cf1df",
-    "userPoolName": "hackzero361cf1df_userpool_361cf1df",
+    "resourceNameTruncated": "hackze42c2e1a8",
+    "userPoolName": "hackzero42c2e1a8_userpool_42c2e1a8",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,10 +18,7 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email",
-        "family_name",
-        "given_name",
-        "nickname"
+        "email"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
@@ -31,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "hackze361cf1df_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "hackze42c2e1a8_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "hackzero361cf1df",
+    "resourceName": "hackzero42c2e1a8",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -51,11 +48,6 @@
     "usernameAttributes": [
         "email"
     ],
-    "triggers": "{}",
     "userPoolGroupList": [],
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": [],
     "dependsOn": []
 }
