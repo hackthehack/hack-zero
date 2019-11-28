@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "hackzero42c2e1a8_identitypool_6d0a541c",
+    "identityPoolName": "hackzero59ea637f_identitypool_59ea637f",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "hackze42c2e1a8",
-    "userPoolName": "hackzero42c2e1a8_userpool_42c2e1a8",
+    "resourceNameTruncated": "hackze59ea637f",
+    "userPoolName": "hackzero59ea637f_userpool_59ea637f",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -18,21 +18,20 @@
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "email",
+        "name"
     ],
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "name",
         "email"
     ],
     "userpoolClientReadAttributes": [
-        "email",
-        "name"
+        "email"
     ],
-    "userpoolClientLambdaRole": "hackze42c2e1a8_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": true,
-    "resourceName": "hackzero42c2e1a8",
+    "userpoolClientLambdaRole": "hackze59ea637f_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "resourceName": "hackzero59ea637f",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,29 +45,36 @@
             "Arn"
         ]
     },
-    "useDefault": "manual",
+    "useDefault": "default",
     "usernameAttributes": [
         "email"
     ],
+    "triggers": "{\"PostConfirmation\":[\"add-to-group\"],\"PreSignup\":[\"email-filter-whitelist\"]}",
     "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [
+        "{\"policyName\":\"AddToGroupCognito\",\"trigger\":\"PostConfirmation\",\"effect\":\"Allow\",\"actions\":[\"cognito-idp:AdminAddUserToGroup\",\"cognito-idp:GetGroup\",\"cognito-idp:CreateGroup\"],\"resource\":{\"paramType\":\"!GetAtt\",\"keys\":[\"UserPool\",\"Arn\"]}}"
+    ],
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "hackzero42c2e1a8PreSignup",
+            "resourceName": "hackzero59ea637fPostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "hackzero59ea637fPreSignup",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",
                 "Name"
             ]
         }
-    ],
-    "userPoolGroups": false,
-    "adminQueries": false,
-    "triggers": "{\"PreSignup\":[\"email-filter-whitelist\"]}",
-    "hostedUI": false,
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": [],
-    "thirdPartyAuth": false
+    ]
 }

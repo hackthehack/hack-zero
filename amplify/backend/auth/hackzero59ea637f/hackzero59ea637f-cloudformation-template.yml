@@ -11,13 +11,23 @@ Parameters:
   
   
   
-  functionhackzero42c2e1a8PreSignupArn: 
+  functionhackzero59ea637fPostConfirmationArn: 
     Type: String
-    Default: functionhackzero42c2e1a8PreSignupArn
+    Default: functionhackzero59ea637fPostConfirmationArn
   
-  functionhackzero42c2e1a8PreSignupName: 
+  functionhackzero59ea637fPostConfirmationName: 
     Type: String
-    Default: functionhackzero42c2e1a8PreSignupName
+    Default: functionhackzero59ea637fPostConfirmationName
+  
+  
+  
+  functionhackzero59ea637fPreSignupArn: 
+    Type: String
+    Default: functionhackzero59ea637fPreSignupArn
+  
+  functionhackzero59ea637fPreSignupName: 
+    Type: String
+    Default: functionhackzero59ea637fPreSignupName
   
   
   
@@ -97,34 +107,22 @@ Parameters:
                       
   usernameAttributes:
     Type: CommaDelimitedList
-              
-  userPoolGroupList:
-    Type: CommaDelimitedList
-              
-  dependsOn:
-    Type: CommaDelimitedList
-        
-  userPoolGroups:
-    Type: String
-              
-  adminQueries:
-    Type: String
-            
+      
   triggers:
     Type: String
-                
-  hostedUI:
-    Type: String
-                  
+                      
+  userPoolGroupList:
+    Type: CommaDelimitedList
+                        
   parentStack:
     Type: String
                 
   permissions:
     Type: CommaDelimitedList
-        
-  thirdPartyAuth:
-    Type: String
-                      
+              
+  dependsOn:
+    Type: CommaDelimitedList
+    
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
@@ -136,7 +134,7 @@ Resources:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'hackze42c2e1a8_sns-role', !Join ['',[ 'sns', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'hackze59ea637f_sns-role', !Join ['',[ 'sns', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument: 
         Version: "2012-10-17"
         Statement: 
@@ -148,10 +146,10 @@ Resources:
               - "sts:AssumeRole"
             Condition: 
               StringEquals:
-                sts:ExternalId: hackze42c2e1a8_role_external_id
+                sts:ExternalId: hackze59ea637f_role_external_id
       Policies: 
         - 
-          PolicyName: hackze42c2e1a8-sns-policy
+          PolicyName: hackze59ea637f-sns-policy
           PolicyDocument: 
             Version: "2012-10-17"
             Statement: 
@@ -176,6 +174,11 @@ Resources:
           Required: true
           Mutable: true
         
+        -
+          Name: name
+          Required: true
+          Mutable: true
+        
       
       
       LambdaConfig:
@@ -184,9 +187,11 @@ Resources:
         
         
         
+          PostConfirmation: !Ref functionhackzero59ea637fPostConfirmationArn
         
         
-          PreSignUp: !Ref functionhackzero42c2e1a8PreSignupArn
+        
+          PreSignUp: !Ref functionhackzero59ea637fPreSignupArn
         
         
         
@@ -212,13 +217,22 @@ Resources:
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsConfiguration: 
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: hackze42c2e1a8_role_external_id
+        ExternalId: hackze59ea637f_role_external_id
     
   
     
     
   
     
+  
+  UserPoolPostConfirmationLambdaInvokePermission: 
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties: 
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functionhackzero59ea637fPostConfirmationName
+      SourceArn: !GetAtt UserPool.Arn
     
   
   
@@ -228,7 +242,7 @@ Resources:
     Properties: 
       Action: "lambda:invokeFunction"
       Principal: "cognito-idp.amazonaws.com"
-      FunctionName: !Ref functionhackzero42c2e1a8PreSignupName
+      FunctionName: !Ref functionhackzero59ea637fPreSignupName
       SourceArn: !GetAtt UserPool.Arn
   
    
@@ -236,15 +250,44 @@ Resources:
   # Updating lambda role with permissions to Cognito
   
   
+  hackzero59ea637fPostConfirmationAddToGroupCognito:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: hackzero59ea637fPostConfirmationAddToGroupCognito
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+            
+              - cognito-idp:AdminAddUserToGroup
+            
+              - cognito-idp:GetGroup
+            
+              - cognito-idp:CreateGroup
+            
+            
+            
+            Resource: !GetAtt
+            
+              - UserPool
+            
+              - Arn
+            
+            
+            
+
+      Roles:
+        - !Join ['',["hackzero59ea637fPostConfirmation", '-', !Ref env]]
+  
+  
+  
   UserPoolClientWeb:
   # Created provide application access to user pool
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: hackze42c2e1a8_app_clientWeb
-      
-      ReadAttributes: !Ref userpoolClientReadAttributes
-      WriteAttributes: !Ref userpoolClientWriteAttributes
+      ClientName: hackze59ea637f_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -254,10 +297,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: hackze42c2e1a8_app_client
-      
-      ReadAttributes: !Ref userpoolClientReadAttributes
-      WriteAttributes: !Ref userpoolClientWriteAttributes
+      ClientName: hackze59ea637f_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -322,7 +362,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: hackze42c2e1a8_userpoolclient_lambda_iam_policy
+      PolicyName: hackze59ea637f_userpoolclient_lambda_iam_policy
       Roles: 
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -339,7 +379,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: hackze42c2e1a8_userpoolclient_lambda_log_policy
+      PolicyName: hackze59ea637f_userpoolclient_lambda_log_policy
       Roles: 
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -379,7 +419,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties: 
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'hackzero42c2e1a8_identitypool_6d0a541c', !Join ['',['hackzero42c2e1a8_identitypool_6d0a541c', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'hackzero59ea637f_identitypool_59ea637f', !Join ['',['hackzero59ea637f_identitypool_59ea637f', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

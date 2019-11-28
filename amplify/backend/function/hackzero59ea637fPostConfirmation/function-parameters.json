@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "hackzero59ea637f",
+    "functionName": "hackzero59ea637fPostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "hackzero59ea637fPostConfirmation",
+    "skipEdit": true,
+    "resourceName": "hackzero59ea637fPostConfirmation"
+}

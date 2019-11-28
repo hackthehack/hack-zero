@@ -31,7 +31,37 @@ function App() {
 
 const signUpConfig = {
   header: 'Register for Hack Day',
-  defaultCountryCode: '61'
+  defaultCountryCode: '61',
+  signUpFields: [
+    {
+      label: 'Email',
+      key: 'email',
+      required: true,
+      displayOrder: 1,
+      type: 'string'
+    },
+    {
+      label: 'Password',
+      key: 'password',
+      required: true,
+      displayOrder: 2,
+      type: 'password'
+    },
+    {
+      label: 'Name',
+      key: 'name',
+      required: true,
+      displayOrder: 3,
+      type: 'string'
+    },
+    {
+      label: 'Phone',
+      key: 'phone_number',
+      required: true,
+      displayOrder: 4,
+      type: 'phone_number'
+    }
+  ]
 }
 
-export default withAuthenticator(App, { signUpConfig, usernameAttributes: 'email' });
+export default withAuthenticator(App, { signUpConfig, usernameAttributes: 'email', includeGreetings: true });

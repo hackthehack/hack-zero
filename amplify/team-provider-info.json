@@ -30,13 +30,18 @@
             "AmplifyAppId": "d1xnltvvry0c5d"
         },
         "categories": {
-            "auth": {
-                "hackzero42c2e1a8": {}
-            },
             "function": {
-                "hackzero42c2e1a8PreSignup": {
+                "hackzero20759f4dDefineAuthChallenge": {},
+                "hackzero20759f4dCreateAuthChallenge": {},
+                "hackzero59ea637fPostConfirmation": {
+                    "GROUP": "hackzero"
+                },
+                "hackzero59ea637fPreSignup": {
                     "DOMAINWHITELIST": "iag.com.au, cgu.com.au"
                 }
+            },
+            "auth": {
+                "hackzero59ea637f": {}
             }
         }
     }

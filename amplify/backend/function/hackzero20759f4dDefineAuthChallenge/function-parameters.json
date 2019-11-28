@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "captcha-define-challenge"
+    ],
+    "parentResource": "hackzero20759f4d",
+    "functionName": "hackzero20759f4dDefineAuthChallenge",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "DefineAuthChallenge.json.ejs",
+    "roleName": "hackzero20759f4dDefineAuthChallenge",
+    "skipEdit": true,
+    "resourceName": "hackzero20759f4dDefineAuthChallenge"
+}

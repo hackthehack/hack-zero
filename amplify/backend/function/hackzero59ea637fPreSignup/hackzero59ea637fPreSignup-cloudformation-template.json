@@ -65,12 +65,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"hackzero42c2e1a8PreSignup",
+						"hackzero59ea637fPreSignup",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"hackzero42c2e1a8PreSignup",
+									"hackzero59ea637fPreSignup",
 									"-",
 									{
 										"Ref": "env"
@@ -109,7 +109,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-hack-zero-testtwo-154420-deployment",
-					"S3Key": "amplify-builds/hackzero42c2e1a8PreSignup-736139482b6353564443-build.zip"
+					"S3Key": "amplify-builds/hackzero59ea637fPreSignup-4f734968364668664a34-build.zip"
 				}
 			}
 		},
@@ -119,12 +119,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"hackzero42c2e1a8PreSignup",
+						"hackzero59ea637fPreSignup",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"hackzero42c2e1a8PreSignup",
+									"hackzero59ea637fPreSignup",
 									"-",
 									{
 										"Ref": "env"
