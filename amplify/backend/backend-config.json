@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"hackzero361cf1df": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
