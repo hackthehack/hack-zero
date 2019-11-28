@@ -9,6 +9,18 @@ Parameters:
     Type: String
   
   
+  
+  
+  functionhackzero42c2e1a8PreSignupArn: 
+    Type: String
+    Default: functionhackzero42c2e1a8PreSignupArn
+  
+  functionhackzero42c2e1a8PreSignupName: 
+    Type: String
+    Default: functionhackzero42c2e1a8PreSignupName
+  
+  
+  
 
     
   identityPoolName:
@@ -88,10 +100,31 @@ Parameters:
               
   userPoolGroupList:
     Type: CommaDelimitedList
-                          
+              
   dependsOn:
     Type: CommaDelimitedList
-    
+        
+  userPoolGroups:
+    Type: String
+              
+  adminQueries:
+    Type: String
+            
+  triggers:
+    Type: String
+                
+  hostedUI:
+    Type: String
+                  
+  parentStack:
+    Type: String
+                
+  permissions:
+    Type: CommaDelimitedList
+        
+  thirdPartyAuth:
+    Type: String
+                      
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
@@ -145,6 +178,19 @@ Resources:
         
       
       
+      LambdaConfig:
+        
+        
+        
+        
+        
+        
+        
+          PreSignUp: !Ref functionhackzero42c2e1a8PreSignupArn
+        
+        
+        
+      
       
       AutoVerifiedAttributes: !Ref autoVerifiedAttributes
       
@@ -169,12 +215,36 @@ Resources:
         ExternalId: hackze42c2e1a8_role_external_id
     
   
+    
+    
+  
+    
+    
+  
+  
+  UserPoolPreSignupLambdaInvokePermission: 
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties: 
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functionhackzero42c2e1a8PreSignupName
+      SourceArn: !GetAtt UserPool.Arn
+  
+   
+    
+  # Updating lambda role with permissions to Cognito
+  
+  
   UserPoolClientWeb:
   # Created provide application access to user pool
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
       ClientName: hackze42c2e1a8_app_clientWeb
+      
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -185,6 +255,9 @@ Resources:
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
       ClientName: hackze42c2e1a8_app_client
+      
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -306,7 +379,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties: 
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'hackzero42c2e1a8_identitypool_42c2e1a8', !Join ['',['hackzero42c2e1a8_identitypool_42c2e1a8', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'hackzero42c2e1a8_identitypool_6d0a541c', !Join ['',['hackzero42c2e1a8_identitypool_6d0a541c', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

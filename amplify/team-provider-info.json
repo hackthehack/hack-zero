@@ -32,6 +32,11 @@
         "categories": {
             "auth": {
                 "hackzero42c2e1a8": {}
+            },
+            "function": {
+                "hackzero42c2e1a8PreSignup": {
+                    "DOMAINWHITELIST": "iag.com.au, cgu.com.au"
+                }
             }
         }
     }

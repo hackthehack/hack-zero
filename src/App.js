@@ -29,4 +29,9 @@ function App() {
   );
 }
 
-export default withAuthenticator(App, true);
+const signUpConfig = {
+  header: 'Register for Hack Day',
+  defaultCountryCode: '61'
+}
+
+export default withAuthenticator(App, { signUpConfig, usernameAttributes: 'email' });

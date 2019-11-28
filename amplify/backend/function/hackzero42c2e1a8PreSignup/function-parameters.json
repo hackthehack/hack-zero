@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "email-filter-whitelist"
+    ],
+    "parentResource": "hackzero42c2e1a8",
+    "functionName": "hackzero42c2e1a8PreSignup",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PreSignup.json.ejs",
+    "roleName": "hackzero42c2e1a8PreSignup",
+    "skipEdit": true,
+    "resourceName": "hackzero42c2e1a8PreSignup"
+}

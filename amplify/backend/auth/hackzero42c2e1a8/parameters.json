@@ -1,5 +1,5 @@
 {
-    "identityPoolName": "hackzero42c2e1a8_identitypool_42c2e1a8",
+    "identityPoolName": "hackzero42c2e1a8_identitypool_6d0a541c",
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "hackze42c2e1a8",
     "userPoolName": "hackzero42c2e1a8_userpool_42c2e1a8",
@@ -23,13 +23,15 @@
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
+        "name",
         "email"
     ],
     "userpoolClientReadAttributes": [
-        "email"
+        "email",
+        "name"
     ],
     "userpoolClientLambdaRole": "hackze42c2e1a8_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
+    "userpoolClientSetAttributes": true,
     "resourceName": "hackzero42c2e1a8",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
@@ -44,10 +46,29 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "usernameAttributes": [
         "email"
     ],
     "userPoolGroupList": [],
-    "dependsOn": []
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "hackzero42c2e1a8PreSignup",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{\"PreSignup\":[\"email-filter-whitelist\"]}",
+    "hostedUI": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "thirdPartyAuth": false
 }
