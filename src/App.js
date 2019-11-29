@@ -3,7 +3,6 @@ import './App.css';
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
-import Button from '@material-ui/core/Button';
 
 import { withAuthenticator } from 'aws-amplify-react';
 
