@@ -6,7 +6,6 @@ import awsconfig from './aws-exports';
 
 import {
   ConfirmSignIn,
-  SignUp,
   ConfirmSignUp,
   ForgotPassword,
   RequireNewPassword,
@@ -23,6 +22,7 @@ import "typeface-roboto";
 import Dashboard from "./Dashboard";
 
 import { CustomSignIn } from "./CustomSignIn";
+import { CustomSignUp } from "./CustomSignUp";
 
 Amplify.configure(awsconfig);
 
@@ -34,41 +34,6 @@ const App = ({ authState }) => (
     {authState === "signedIn" && <Dashboard />}
   </>
 );
-
-const signUpConfig = {
-  header: "Register for Hack Day",
-  defaultCountryCode: "61",
-  signUpFields: [
-    {
-      label: "Email",
-      key: "email",
-      required: true,
-      displayOrder: 1,
-      type: "string"
-    },
-    {
-      label: "Password",
-      key: "password",
-      required: true,
-      displayOrder: 2,
-      type: "password"
-    },
-    {
-      label: "Name",
-      key: "name",
-      required: true,
-      displayOrder: 3,
-      type: "string"
-    },
-    {
-      label: "Phone",
-      key: "phone_number",
-      required: true,
-      displayOrder: 4,
-      type: "phone_number"
-    }
-  ]
-};
 
 const Copyright = () => (
   <Typography variant="body2" color="textSecondary" align="center">
@@ -88,7 +53,7 @@ const AppWithAuth = () => (
     >
       <CustomSignIn />
       <ConfirmSignIn />
-      <SignUp signUpConfig={signUpConfig} />
+      <CustomSignUp />
       <ConfirmSignUp />
       <ForgotPassword />
       <RequireNewPassword />
