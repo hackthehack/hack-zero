@@ -17,7 +17,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./listItems";
-import { ReactComponent as logo } from "./logo-trans.png";
+import logo from "./logo-trans.png";
 
 const drawerWidth = 240;
 
@@ -169,7 +169,7 @@ export default function Dashboard() {
             {/* Chart */}
 
             {/* Recent Orders */}
-            <Grid item xs={12}>
+            <Grid item xs={12} style={{textAlign: 'center'}}>
               <img src={logo} alt="logo" />
             </Grid>
             <Grid item xs={12}>
