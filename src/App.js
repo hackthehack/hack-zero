@@ -80,7 +80,7 @@ const Copyright = () => (
 );
 
 const AppWithAuth = () => (
-  <Container>
+  <>
     <Authenticator
       hideDefault={true}
       usernameAttributes="email"
@@ -95,10 +95,12 @@ const AppWithAuth = () => (
       <Greetings />
       <App />
     </Authenticator>
+  <Container>
     <Box mt={8}>
       <Copyright />
     </Box>
   </Container>
+  </>
 );
 
 export default AppWithAuth;
