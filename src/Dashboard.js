@@ -18,10 +18,12 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./listItems";
 import logo from "./logo-trans.png";
+import {Switch, Route} from "react-router-dom";
+import {LandingPage} from "./pages/landing-page";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
   },
@@ -172,21 +174,9 @@ export default function Dashboard() {
             <Grid item xs={12} style={{textAlign: 'center'}}>
               <img src={logo} alt="logo" />
             </Grid>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <h2>Upcoming hackathon</h2>
-                <p>
-                  <b>Theme:</b> Synthwave! 80's Again! <br />
-                  <b>Date:</b> Q1 2020
-                </p>
-              </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <h2>Your Idea!</h2>
-                <p>You haven't selected one yet!</p>
-              </Paper>
-            </Grid>
+            <Switch>
+              <Route path="/" component={LandingPage} />
+            </Switch>
           </Grid>
         </Container>
       </main>
