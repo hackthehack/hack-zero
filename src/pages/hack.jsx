@@ -66,7 +66,6 @@ export const HackPage = () => {
                   </Field>
                 </div>
               </Form>
-              <Debug/>
             </>
           )}
         </Formik>
