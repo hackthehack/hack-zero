@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from './listItems';
-import { ReactComponent as Logo } from './logo.svg';
+import { ReactComponent as logo } from './logo-trans.png';
 
 function Copyright() {
   return (
@@ -172,8 +172,21 @@ export default function Dashboard() {
 
             {/* Recent Orders */}
             <Grid item xs={12}>
+                <img src={logo} />
+            </Grid>
+            <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <img src={Logo} />
+                <h2>Upcoming hackathon</h2>
+                <p>
+                  <b>Theme:</b> Synthwave! 80's Again! <br />
+                  <b>Date:</b> 20 Feb 2084
+                </p>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <h2>Your Idea!</h2>
+                <p>You haven't selected one yet!</p>
               </Paper>
             </Grid>
           </Grid>
