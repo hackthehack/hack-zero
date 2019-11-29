@@ -101,7 +101,7 @@
 				"Runtime": "nodejs8.10",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-hack-zero-testtwo-154420-deployment",
+					"S3Bucket": "amplify-hack-zero-testthree-172431-deployment",
 					"S3Key": "amplify-builds/hackzero59ea637fPostConfirmation-2f567a4b325749316341-build.zip"
 				}
 			}

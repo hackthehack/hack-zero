@@ -101,7 +101,7 @@
 				"Runtime": "nodejs8.10",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-hack-zero-testtwo-154420-deployment",
+					"S3Bucket": "amplify-hack-zero-testthree-172431-deployment",
 					"S3Key": "amplify-builds/hackzero20759f4dCreateAuthChallenge-50585068652f72673863-build.zip"
 				}
 			}

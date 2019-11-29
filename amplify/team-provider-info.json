@@ -44,5 +44,33 @@
                 "hackzero59ea637f": {}
             }
         }
+    },
+    "testthree": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-hack-zero-testthree-172431-authRole",
+            "UnauthRoleArn": "arn:aws:iam::495526829652:role/amplify-hack-zero-testthree-172431-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::495526829652:role/amplify-hack-zero-testthree-172431-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-hack-zero-testthree-172431-deployment",
+            "UnauthRoleName": "amplify-hack-zero-testthree-172431-unauthRole",
+            "StackName": "amplify-hack-zero-testthree-172431",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:495526829652:stack/amplify-hack-zero-testthree-172431/eb558930-1270-11ea-ae82-0288a772bdca",
+            "AmplifyAppId": "d1xnltvvry0c5d"
+        },
+        "categories": {
+            "auth": {
+                "hackzero59ea637f": {}
+            },
+            "function": {
+                "hackzero20759f4dDefineAuthChallenge": {},
+                "hackzero20759f4dCreateAuthChallenge": {},
+                "hackzero59ea637fPostConfirmation": {
+                    "GROUP": "hackzero"
+                },
+                "hackzero59ea637fPreSignup": {
+                    "DOMAINWHITELIST": "iag.com.au, cgu.com.au"
+                }
+            }
+        }
     }
 }
