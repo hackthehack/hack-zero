@@ -1,0 +1,5 @@
+type Hacks @model {
+  id: ID!
+  name: String!
+  description: String
+}
