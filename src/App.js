@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 
-import Amplify from "aws-amplify";
-import awsconfig from "./aws-exports";
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
 
 import {
   ConfirmSignIn,

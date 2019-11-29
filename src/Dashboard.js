@@ -16,10 +16,8 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
-import Orders from './Orders';
+import { mainListItems } from './listItems';
+import { ReactComponent as logo } from './logo-trans.png';
 
 const drawerWidth = 240;
 
@@ -43,6 +41,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    marginTop: 66,
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -111,7 +110,6 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -151,29 +149,30 @@ export default function Dashboard() {
         </div>
         <Divider />
         <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
+
             {/* Recent Orders */}
             <Grid item xs={12}>
+                <img src={logo} />
+            </Grid>
+            <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders />
+                <h2>Upcoming hackathon</h2>
+                <p>
+                  <b>Theme:</b> Synthwave! 80's Again! <br />
+                  <b>Date:</b> 20 Feb 2084
+                </p>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className={classes.paper}>
+                <h2>Your Idea!</h2>
+                <p>You haven't selected one yet!</p>
               </Paper>
             </Grid>
           </Grid>
