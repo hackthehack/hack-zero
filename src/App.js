@@ -6,7 +6,6 @@ import awsconfig from './aws-exports';
 
 import {
   ConfirmSignIn,
-  ConfirmSignUp,
   ForgotPassword,
   RequireNewPassword,
   Greetings,
@@ -23,6 +22,7 @@ import Dashboard from "./Dashboard";
 
 import { CustomSignIn } from "./CustomSignIn";
 import { CustomSignUp } from "./CustomSignUp";
+import { CustomConfirmSignUp } from "./CustomConfirmSignUp";
 
 Amplify.configure(awsconfig);
 
@@ -54,7 +54,7 @@ const AppWithAuth = () => (
       <CustomSignIn />
       <ConfirmSignIn />
       <CustomSignUp />
-      <ConfirmSignUp />
+      <CustomConfirmSignUp />
       <ForgotPassword />
       <RequireNewPassword />
       <Greetings />
