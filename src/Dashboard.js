@@ -20,6 +20,7 @@ import { mainListItems } from "./listItems";
 import logo from "./logo-trans.png";
 import {Switch, Route} from "react-router-dom";
 import {LandingPage} from "./pages/landing-page";
+import {FindHacks} from "./pages/find-hacks";
 
 const drawerWidth = 240;
 
@@ -175,10 +176,11 @@ export default function Dashboard() {
               <img src={logo} alt="logo" />
             </Grid>
             <Switch>
+              <Route path="/find-hacks" component={FindHacks} />
               <Route path="/" component={LandingPage} />
             </Switch>
           </Grid>
-        </Container>
+          </Container>
       </main>
     </div>
   );
