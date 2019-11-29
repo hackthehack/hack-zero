@@ -177,7 +177,7 @@ export default function Dashboard() {
                 <h2>Upcoming hackathon</h2>
                 <p>
                   <b>Theme:</b> Synthwave! 80's Again! <br />
-                  <b>Date:</b> 20 Feb 2084
+                  <b>Date:</b> Q1 2020
                 </p>
               </Paper>
             </Grid>
