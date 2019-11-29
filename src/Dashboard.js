@@ -12,14 +12,14 @@ import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./listItems";
 import logo from "./logo-trans.png";
-import {Switch, Route} from "react-router-dom";
-import {LandingPage} from "./pages/landing-page";
+import { Switch, Route } from "react-router-dom";
+import { LandingPage } from "./pages/landing-page";
+import { HackPage } from "./pages/hack";
 
 const drawerWidth = 240;
 
@@ -175,6 +175,7 @@ export default function Dashboard() {
               <img src={logo} alt="logo" />
             </Grid>
             <Switch>
+              <Route path="/hack" component={HackPage} />
               <Route path="/" component={LandingPage} />
             </Switch>
           </Grid>
