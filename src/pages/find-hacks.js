@@ -22,12 +22,7 @@ export const FindHacks = () => {
                 </Link>
             </Grid>
 
-            <Grid item xs={12}>
-                <Paper className={classes.paper}>
-                    <h2>Hack Day App</h2>
-                    <p>Create & View Hacks</p>
-                </Paper>
-            </Grid>
+
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
                     <h2>Real Time P&V Test Monitoring</h2>
@@ -58,6 +53,12 @@ export const FindHacks = () => {
                 <Paper className={classes.paper}>
                     <h2>Country Road</h2>
                     <p>An HR model that supports  teams being co-located in regional Australia</p>
+                </Paper>
+            </Grid>
+            <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                    <h2>Hack Day App</h2>
+                    <p>Create & View Hacks</p>
                 </Paper>
             </Grid>
         </>
