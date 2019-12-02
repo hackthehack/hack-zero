@@ -173,7 +173,7 @@ export default function Dashboard() {
 
             {/* Recent Orders */}
             <Grid item xs={12} style={{textAlign: 'center'}}>
-              <img src={logo} alt="logo" />
+              <img src={logo} alt="logo" style={{width: "200px"}} />
             </Grid>
             <Switch>
               <Route path="/find-hacks" component={FindHacks} />
