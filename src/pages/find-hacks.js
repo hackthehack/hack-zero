@@ -2,6 +2,8 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import {useStyles} from "../Dashboard";
+import Button from "@material-ui/core/Button";
+import Link from "@material-ui/core/Link";
 
 
 export const FindHacks = () => {
@@ -10,6 +12,8 @@ export const FindHacks = () => {
     return (
         <>
             <h1>Hack Ideas</h1>
+
+
 
             <Grid item xs={12}>
                 <Paper className={classes.paper}>

@@ -5,6 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LayersIcon from '@material-ui/icons/Layers';
+import {Link} from 'react-router-dom'
 
 export const mainListItems = (
   <div>
@@ -18,7 +19,9 @@ export const mainListItems = (
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Hack Ideas" />
+        <Link to={'/find-hacks'}>
+            <ListItemText primary="Hack Ideas" />
+        </Link>
     </ListItem>
       <ListItem button>
           <ListItemIcon>
