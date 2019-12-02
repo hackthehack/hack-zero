@@ -58,7 +58,7 @@ export const FindHacks = () => {
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
                     <h2>Hack Day App</h2>
-                    <p>Create & View Hacks</p>
+                    <p>Create and Find Hacks</p>
                 </Paper>
             </Grid>
         </>
