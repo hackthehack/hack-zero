@@ -4,6 +4,7 @@ import {Field, Form, Formik} from "formik";
 import {TextField} from "@material-ui/core";
 import {Debug} from "../Debug";
 import {makeStyles} from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,6 +66,8 @@ export const HackPage = () => {
                     )}
                   </Field>
                 </div>
+
+                <Button color="primary">Submit</Button>
               </Form>
             </>
           )}

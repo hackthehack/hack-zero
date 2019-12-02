@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import {useStyles} from "../Dashboard";
 import Button from "@material-ui/core/Button";
-import Link from "@material-ui/core/Link";
+import {Link} from 'react-router-dom'
 
 
 export const FindHacks = () => {
@@ -13,7 +13,14 @@ export const FindHacks = () => {
         <>
             <h1>Hack Ideas</h1>
 
+            <Grid item xs={12}>
 
+                <Link to={'/hack'}>
+                    <Button color="primary">
+                        Create Hack
+                    </Button>
+                </Link>
+            </Grid>
 
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
