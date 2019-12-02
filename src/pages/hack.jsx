@@ -5,6 +5,8 @@ import {TextField} from "@material-ui/core";
 import {Debug} from "../Debug";
 import {makeStyles} from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import {Link} from 'react-router-dom'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,7 +69,9 @@ export const HackPage = () => {
                   </Field>
                 </div>
 
-                <Button color="primary">Submit</Button>
+                <Link to={'/find-hacks'}>
+                  <Button color="primary">Submit</Button>
+                </Link>
               </Form>
             </>
           )}
