@@ -24,6 +24,12 @@ export const FindHacks = () => {
 
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
+                    <h2>Hack Day App</h2>
+                    <p>Create & View Hacks</p>
+                </Paper>
+            </Grid>
+            <Grid item xs={12}>
+                <Paper className={classes.paper}>
                     <h2>Real Time P&V Test Monitoring</h2>
                     <p>Ability to see real time P&V test results while a JMeter test is running (in non GUI mode)</p>
                 </Paper>
